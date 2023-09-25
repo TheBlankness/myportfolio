@@ -18,11 +18,19 @@
 	</div>
 
 	<div class="flex justify-evenly items-center h-screen">
-		<div>
-			<div class=" text-black text-9xl font-normal font-['Monda']">Hi!</div>
-			<div class=" text-black text-9xl font-normal font-['Monda']">I am</div>
-			<div class=" text-black text-9xl font-normal font-['Monda']">Hazim</div>
-			<div class="  text-black text-9xl font-normal font-['Monda']">Imanuddin</div>
+		<div class="text-black">
+			<div class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal font-Monda">
+				Hi!
+			</div>
+			<div class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal font-Monda">
+				I am
+			</div>
+			<div class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal font-Monda">
+				Hazim
+			</div>
+			<div class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal font-Monda">
+				Imanuddin
+			</div>
 		</div>
 		<div class="text-transparent bg-transparent">ඞ</div>
 		<div class="text-transparent bg-transparent">ඞ</div>
