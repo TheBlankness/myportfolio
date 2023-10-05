@@ -33,12 +33,12 @@
 
 <div class="min-h-screen bg-white">
 	<div class="pt-32 container flex flex-row justify-between">
-		<div class="ml-10 p-6 lg:p-10 w-2/6">
+		<div class=" p-6 lg:p-10 w-2/6">
 			<div class="text-neutral-400 text-1xl lg:text-5xl font-normal font-Monda whitespace-nowrap">
 				About me
 			</div>
 		</div>
-		<div class="flex flex-col justify-evenly w-4/6">
+		<div class="p-4 flex flex-col justify-evenly w-4/6">
 			<div
 				class="pr-2 text-justify text-black text-md lg:text-3xl font-normal font-Monda leading-[32px]"
 			>
@@ -56,19 +56,19 @@
 		</div>
 	</div>
 	<div class="pt-32 container flex flex-row justify-between">
-		<div class="ml-10 p-6 lg:p-10 w-2/6">
+		<div class="p-6 lg:p-10 w-2/6">
 			<div class="text-neutral-400 text-1xl lg:text-5xl font-normal font-Monda whitespace-nowrap">
 				Contact
 			</div>
 		</div>
-		<div class="flex flex-col justify-evenly w-4/6">
+		<div class="p-4 flex flex-col justify-evenly w-4/6">
 			<div
-				class="pr-2 text-justify text-black text-md lg:text-3xl font-normal font-Monda leading-[32px]"
+				class="pr-2 text-left text-black text-md lg:text-3xl font-normal font-Monda leading-[32px]"
 			>
 				📧 Email: iddinishak@gmail.com
 			</div>
 			<div
-				class="pr-2 mt-14 text-justify text-black text-md lg:text-3xl font-normal font-Monda leading-[32px]"
+				class="pr-2 mt-14 text-left text-black text-md lg:text-3xl font-normal font-Monda leading-[32px]"
 			>
 				📞 Phone: 012-3866217
 			</div>
