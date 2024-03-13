@@ -1,6 +1,8 @@
 <script>
 </script>
-
+<svelte:head>
+    <title>Hazim Portfolio Page by LawCloud</title>
+</svelte:head>
 <div class="relative min-h-screen">
 	<!-- Video Background -->
 	<div class="fixed inset-0 -z-10">
