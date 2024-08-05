@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="pt-32 container flex flex-row justify-between">
+	<div class="py-32 container flex flex-row justify-between">
 		<div class="p-6 lg:p-10 w-2/6">
 			<div class="text-neutral-400 text-1xl lg:text-5xl font-normal font-Monda whitespace-nowrap">
 				Contact
@@ -82,7 +82,7 @@
 	<div class="mt-28 mb-12 space-y-2 text-center">
 		<h2 class="text-3xl font-bold text-gray-700 md:text-7xl">My Projects</h2>
 		<p class="pt-11 text-1xl md:text-3xl lg:mx-auto lg:w-6/12 text-black dark:text-black">
-			List of my past projects and personal projects
+			List of my projects
 		</p>
 	</div>
 	<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -98,9 +98,9 @@
 				/>
 			</div>
 			<div class="mt-6 relative">
-				<h3 class="text-2xl font-semibold text-white">Owner of LCNS: LawCloud Network Services</h3>
-				<p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-					Founder and Director of the LawCloud Network Sdn Bhd.
+				<h3 class="text-2xl font-semibold text-white">JomCloud: Owner & Founder</h3>
+				<p class="mt-6 mb-8 text-gray-300 dark:text-gray-300">
+					Founder and Director of the JomCloud Network Sdn Bhd.
 				</p>
 				<a class="inline-block text-white" href="https://github.com/bildeopc">
 					<span class="text-info">Go to</span>
@@ -120,7 +120,7 @@
 			</div>
 			<div class="mt-6 relative">
 				<h3 class="text-2xl font-semibold text-white">BildeoPC: AI Powered PC Shopping</h3>
-				<p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
+				<p class="mt-6 mb-8 text-gray-300 dark:text-gray-300">
 					BildeoPC is an AI-powered PC builder assistant and e-commerce platform.
 				</p>
 				<a class="inline-block text-gray-200" href=" https://www.bildeopc.com/">
@@ -140,11 +140,11 @@
 				/>
 			</div>
 			<div class="mt-6 relative">
-				<h3 class="text-2xl font-semibold text-white">My Personal HomeLab Project V1</h3>
-				<p class="mt-6 mb-8 text-gray-600 dark:text-gray-300">
-					One of my personal projects to become fully self-hosted.
+				<h3 class="text-2xl font-semibold text-white">H2 Solutions: IT-Solutions Services</h3>
+				<p class="mt-6 mb-8 text-gray-300 dark:text-gray-300">
+					We specialize in providing top-notch IT solutions to empower businesses.
 				</p>
-				<a class="inline-block text-white" href="https://github.com/TheBlankness/uptime-lawcloud">
+				<a class="inline-block text-white" href="https://h2.jomcloud.com/">
 					<span class="text-info">Go to</span>
 				</a>
 			</div>
