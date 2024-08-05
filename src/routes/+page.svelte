@@ -102,7 +102,7 @@
 				<p class="mt-6 mb-8 text-gray-300 dark:text-gray-300">
 					Founder and Director of the JomCloud Network Sdn Bhd.
 				</p>
-				<a class="inline-block text-white" href="https://github.com/bildeopc">
+				<a class="inline-block text-white" href="https://www.jomcloud.com">
 					<span class="text-info">Go to</span>
 				</a>
 			</div>
@@ -123,7 +123,7 @@
 				<p class="mt-6 mb-8 text-gray-300 dark:text-gray-300">
 					BildeoPC is an AI-powered PC builder assistant and e-commerce platform.
 				</p>
-				<a class="inline-block text-gray-200" href=" https://www.bildeopc.com/">
+				<a class="inline-block text-gray-200" href=" https://bildeopc.jomcloud.com/">
 					<span class="text-info">Go to</span>
 				</a>
 			</div>
