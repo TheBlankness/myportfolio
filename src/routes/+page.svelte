@@ -714,10 +714,14 @@
 
 	.tech-panel {
 		position: relative;
+		display: grid;
+		grid-template-rows: minmax(210px, 1fr) auto;
+		gap: 1rem;
 		min-height: 430px;
 		border: 1px solid rgba(5, 6, 7, 0.12);
 		border-radius: 8px;
 		overflow: hidden;
+		padding: 1.25rem;
 		background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.28)),
 			radial-gradient(circle at 30% 20%, rgba(0, 216, 255, 0.2), transparent 34%);
 		backdrop-filter: blur(24px);
@@ -740,11 +744,11 @@
 	}
 
 	.tech-svg {
-		position: absolute;
-		inset: 0;
+		position: relative;
 		width: 100%;
 		height: 100%;
-		padding: 1.5rem;
+		min-height: 210px;
+		padding: 0.25rem;
 	}
 
 	.orbit,
@@ -786,8 +790,8 @@
 	}
 
 	.panel-content {
-		position: absolute;
-		inset: auto 1.25rem 1.25rem 1.25rem;
+		position: relative;
+		z-index: 1;
 		border-radius: 8px;
 		padding: 1rem;
 		background: rgba(246, 251, 250, 0.76);
@@ -1223,7 +1227,12 @@
 
 	@media (max-width: 900px) {
 		.tech-panel {
-			min-height: 360px;
+			min-height: 0;
+			grid-template-rows: minmax(180px, 1fr) auto;
+		}
+
+		.tech-svg {
+			min-height: 180px;
 		}
 	}
 
