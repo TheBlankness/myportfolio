@@ -13,8 +13,7 @@
 			description:
 				'Founder and Director of JomCloud Network Sdn Bhd, building cloud-first tools and services.',
 			url: 'https://www.jomcloud.com',
-			image: '/lawcloudnet.png',
-			alt: 'JomCloud Network website preview',
+			visual: 'cloud',
 			tags: ['Cloud', 'Business', 'Platform']
 		},
 		{
@@ -23,8 +22,7 @@
 			description:
 				'An AI-powered PC builder assistant and e-commerce platform for smarter hardware choices.',
 			url: 'https://bildeopc.jomcloud.com/',
-			image: '/bildeopc.png',
-			alt: 'BildeoPC platform preview',
+			visual: 'pc',
 			tags: ['AI', 'Commerce', 'PC Builder']
 		},
 		{
@@ -33,8 +31,7 @@
 			description:
 				'Practical IT solutions that help businesses run cleaner infrastructure and better workflows.',
 			url: 'https://h2.jomcloud.com/',
-			image: '/homelab.png',
-			alt: 'H2 Solutions services preview',
+			visual: 'lab',
 			tags: ['IT', 'Support', 'Homelab']
 		},
 		{
@@ -306,29 +303,107 @@
 							aria-label={`Open ${project.title}`}
 						>
 							<div class="project-visual">
-								{#if project.visual === 'pdf'}
-									<div class="pdf-preview" aria-hidden="true">
-										<div class="pdf-toolbar">
+								<div class={`vector-preview vector-${project.visual}`} aria-hidden="true">
+									<div class="vector-backdrop" />
+
+									{#if project.visual === 'cloud'}
+										<div class="cloud-mark">
 											<span />
 											<span />
 											<span />
 										</div>
-										<div class="pdf-page">
-											<div class="pdf-line wide" />
-											<div class="pdf-line" />
-											<div class="pdf-highlight" />
-											<div class="pdf-comment">Sign</div>
+										<div class="vector-console cloud-console">
+											<div class="console-top">
+												<span />
+												<span />
+												<span />
+											</div>
+											<div class="cloud-server primary">
+												<span />
+												<span />
+												<span />
+											</div>
+											<div class="cloud-server secondary">
+												<span />
+												<span />
+												<span />
+											</div>
 										</div>
-									</div>
-								{:else}
-									<img
-										src={project.image}
-										alt={project.alt}
-										loading="lazy"
-										width="1000"
-										height="667"
-									/>
-								{/if}
+										<svg class="vector-lines" viewBox="0 0 320 220">
+											<path d="M66 118 C116 62 174 170 252 78" />
+											<path d="M82 168 C126 128 184 128 238 164" />
+											<circle cx="66" cy="118" r="6" />
+											<circle cx="252" cy="78" r="6" />
+											<circle cx="238" cy="164" r="6" />
+										</svg>
+										<strong>JomCloud</strong>
+									{:else if project.visual === 'pc'}
+										<div class="monitor-shell">
+											<div class="monitor-screen">
+												<span class="ai-orb" />
+												<span class="build-line one" />
+												<span class="build-line two" />
+												<span class="build-chip">AI</span>
+											</div>
+										</div>
+										<div class="pc-tower">
+											<span />
+											<span />
+											<span />
+										</div>
+										<div class="keyboard-plate">
+											<span />
+											<span />
+											<span />
+											<span />
+										</div>
+										<svg class="vector-lines" viewBox="0 0 320 220">
+											<path d="M54 62 C110 18 158 98 206 54 C234 30 258 30 292 52" />
+											<path d="M72 174 H148 L170 150 L200 174 H268" />
+										</svg>
+									{:else if project.visual === 'lab'}
+										<div class="lab-rack">
+											<div>
+												<span />
+												<span />
+												<span />
+											</div>
+											<div>
+												<span />
+												<span />
+												<span />
+											</div>
+											<div>
+												<span />
+												<span />
+												<span />
+											</div>
+										</div>
+										<div class="shield-badge">
+											<span>H2</span>
+										</div>
+										<svg class="vector-lines" viewBox="0 0 320 220">
+											<path d="M78 76 H134 L160 42 L188 76 H244" />
+											<path d="M90 160 C122 128 150 188 184 154 C208 132 232 136 260 164" />
+											<circle cx="160" cy="42" r="6" />
+											<circle cx="244" cy="76" r="6" />
+										</svg>
+									{:else}
+										<div class="pdf-preview">
+											<div class="pdf-toolbar">
+												<span />
+												<span />
+												<span />
+											</div>
+											<div class="pdf-page">
+												<div class="pdf-line wide" />
+												<div class="pdf-line" />
+												<div class="pdf-highlight" />
+												<div class="pdf-comment">Sign</div>
+											</div>
+										</div>
+									{/if}
+								</div>
 								<svg class="card-circuit" viewBox="0 0 320 180" aria-hidden="true">
 									<path d="M8 150 C70 84 94 112 148 76 C194 44 228 76 312 24" />
 									<circle cx="148" cy="76" r="5" />
@@ -905,20 +980,356 @@
 		aspect-ratio: 4 / 3;
 		overflow: hidden;
 		background: #101211;
+		isolation: isolate;
 	}
 
-	.project-visual img {
+	.vector-preview {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		overflow: hidden;
+		padding: 1rem;
+		background: #111514;
+	}
+
+	.vector-preview::before {
+		position: absolute;
+		inset: 0;
+		content: '';
+		background-image: linear-gradient(rgba(248, 255, 248, 0.08) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(248, 255, 248, 0.08) 1px, transparent 1px);
+		background-size: 28px 28px;
+		mask-image: radial-gradient(circle at center, black, transparent 76%);
+		opacity: 0.7;
+	}
+
+	.vector-preview::after {
+		position: absolute;
+		width: 15rem;
+		height: 15rem;
+		content: '';
+		border: 1px dashed rgba(183, 255, 42, 0.48);
+		border-radius: 999px;
+		animation: spin 18s linear infinite;
+	}
+
+	.vector-cloud {
+		background: radial-gradient(circle at 22% 20%, rgba(0, 216, 255, 0.24), transparent 32%),
+			linear-gradient(135deg, #ecfffb, #dff4ef 48%, #f8fff8);
+	}
+
+	.vector-pc {
+		background: radial-gradient(circle at 74% 24%, rgba(255, 61, 129, 0.28), transparent 34%),
+			linear-gradient(135deg, #12182b, #102536 48%, #151112);
+	}
+
+	.vector-lab {
+		background: radial-gradient(circle at 50% 32%, rgba(183, 255, 42, 0.18), transparent 34%),
+			linear-gradient(135deg, #070909, #141817 56%, #090b0a);
+	}
+
+	.vector-pdf {
+		background: radial-gradient(circle at 78% 28%, rgba(0, 216, 255, 0.2), transparent 32%),
+			linear-gradient(135deg, #14221d, #12201d 48%, #101211);
+	}
+
+	.vector-backdrop {
+		position: absolute;
+		inset: 1rem;
+		border: 1px solid rgba(248, 255, 248, 0.14);
+		border-radius: 8px;
+		background: rgba(5, 6, 7, 0.18);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+	}
+
+	.vector-cloud .vector-backdrop {
+		border-color: rgba(5, 6, 7, 0.1);
+		background: rgba(255, 255, 255, 0.5);
+	}
+
+	.vector-preview strong {
+		position: absolute;
+		left: 1.8rem;
+		bottom: 1.45rem;
+		z-index: 2;
+		color: #101211;
+		font-size: clamp(1.8rem, 4vw, 3rem);
+		font-weight: 900;
+		letter-spacing: 0;
+	}
+
+	.vector-lines {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		object-position: top;
-		transition: transform 500ms ease, filter 500ms ease;
 	}
 
-	.project-card:hover img,
-	.project-card:focus-within img {
-		transform: scale(1.06);
-		filter: saturate(1.15);
+	.vector-lines path,
+	.vector-lines circle {
+		fill: none;
+		stroke: #b7ff2a;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 3;
+		filter: drop-shadow(0 0 10px rgba(183, 255, 42, 0.35));
+	}
+
+	.vector-lines path {
+		stroke-dasharray: 380;
+		stroke-dashoffset: 0;
+		transition: stroke-dashoffset 600ms ease;
+	}
+
+	.project-card:hover .vector-lines path,
+	.project-card:focus-within .vector-lines path {
+		stroke-dashoffset: 380;
+	}
+
+	.cloud-mark {
+		position: absolute;
+		left: 1.55rem;
+		top: 1.45rem;
+		z-index: 2;
+		width: 8rem;
+		height: 4.6rem;
+	}
+
+	.cloud-mark span {
+		position: absolute;
+		display: block;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #00d8ff, #b7ff2a);
+		box-shadow: 0 14px 35px rgba(0, 216, 255, 0.18);
+	}
+
+	.cloud-mark span:nth-child(1) {
+		left: 0.4rem;
+		bottom: 0.2rem;
+		width: 4.5rem;
+		height: 2.4rem;
+	}
+
+	.cloud-mark span:nth-child(2) {
+		left: 2.3rem;
+		top: 0.25rem;
+		width: 3.6rem;
+		height: 3.6rem;
+	}
+
+	.cloud-mark span:nth-child(3) {
+		right: 0.2rem;
+		bottom: 0.25rem;
+		width: 4rem;
+		height: 2.7rem;
+	}
+
+	.vector-console {
+		position: relative;
+		z-index: 2;
+		border: 1px solid rgba(5, 6, 7, 0.1);
+		border-radius: 8px;
+		background: rgba(248, 255, 248, 0.82);
+		padding: 0.8rem;
+		box-shadow: 0 18px 48px rgba(5, 6, 7, 0.18);
+	}
+
+	.cloud-console {
+		width: min(62%, 13rem);
+		margin-left: auto;
+	}
+
+	.console-top {
+		display: flex;
+		gap: 0.35rem;
+		margin-bottom: 0.7rem;
+	}
+
+	.console-top span,
+	.pc-tower span,
+	.lab-rack span {
+		width: 0.45rem;
+		height: 0.45rem;
+		border-radius: 999px;
+		background: #00d8ff;
+	}
+
+	.console-top span:nth-child(2),
+	.pc-tower span:nth-child(2),
+	.lab-rack span:nth-child(2) {
+		background: #b7ff2a;
+	}
+
+	.console-top span:nth-child(3),
+	.pc-tower span:nth-child(3),
+	.lab-rack span:nth-child(3) {
+		background: #ff3d81;
+	}
+
+	.cloud-server {
+		display: grid;
+		gap: 0.4rem;
+		border-radius: 6px;
+		background: rgba(5, 6, 7, 0.08);
+		padding: 0.55rem;
+	}
+
+	.cloud-server + .cloud-server {
+		margin-top: 0.55rem;
+	}
+
+	.cloud-server span {
+		height: 0.4rem;
+		border-radius: 999px;
+		background: rgba(5, 6, 7, 0.22);
+	}
+
+	.cloud-server span:nth-child(2) {
+		width: 74%;
+	}
+
+	.cloud-server span:nth-child(3) {
+		width: 46%;
+	}
+
+	.monitor-shell {
+		position: relative;
+		z-index: 2;
+		width: min(68%, 14.5rem);
+		border: 1px solid rgba(248, 255, 248, 0.16);
+		border-radius: 8px;
+		background: rgba(248, 255, 248, 0.08);
+		padding: 0.75rem;
+		box-shadow: 0 20px 58px rgba(0, 0, 0, 0.34);
+	}
+
+	.monitor-screen {
+		position: relative;
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+		border-radius: 6px;
+		background: radial-gradient(circle at 28% 38%, rgba(0, 216, 255, 0.32), transparent 30%),
+			linear-gradient(135deg, rgba(0, 216, 255, 0.12), rgba(183, 255, 42, 0.1));
+	}
+
+	.ai-orb {
+		position: absolute;
+		left: 1rem;
+		top: 1rem;
+		width: 3.6rem;
+		height: 3.6rem;
+		border: 1px solid rgba(0, 216, 255, 0.45);
+		border-radius: 999px;
+		background: rgba(0, 216, 255, 0.18);
+		box-shadow: 0 0 34px rgba(0, 216, 255, 0.2);
+	}
+
+	.build-line {
+		position: absolute;
+		right: 1rem;
+		height: 0.45rem;
+		border-radius: 999px;
+		background: rgba(248, 255, 248, 0.55);
+	}
+
+	.build-line.one {
+		top: 1.4rem;
+		width: 42%;
+	}
+
+	.build-line.two {
+		top: 2.35rem;
+		width: 30%;
+	}
+
+	.build-chip {
+		position: absolute;
+		right: 1rem;
+		bottom: 0.9rem;
+		border-radius: 6px;
+		background: #b7ff2a;
+		padding: 0.35rem 0.5rem;
+		color: #101211;
+		font-size: 0.76rem;
+		font-weight: 900;
+	}
+
+	.pc-tower {
+		position: absolute;
+		right: 1.55rem;
+		bottom: 1.35rem;
+		z-index: 2;
+		display: grid;
+		gap: 0.45rem;
+		width: 3.4rem;
+		border: 1px solid rgba(248, 255, 248, 0.14);
+		border-radius: 8px;
+		background: rgba(5, 6, 7, 0.55);
+		padding: 0.65rem;
+	}
+
+	.keyboard-plate {
+		position: absolute;
+		left: 2rem;
+		bottom: 1.6rem;
+		z-index: 2;
+		display: flex;
+		gap: 0.35rem;
+		border-radius: 6px;
+		background: rgba(248, 255, 248, 0.12);
+		padding: 0.45rem;
+	}
+
+	.keyboard-plate span {
+		width: 1.35rem;
+		height: 0.35rem;
+		border-radius: 999px;
+		background: rgba(248, 255, 248, 0.6);
+	}
+
+	.lab-rack {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		gap: 0.55rem;
+		width: min(68%, 13.5rem);
+	}
+
+	.lab-rack > div {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		border: 1px solid rgba(248, 255, 248, 0.12);
+		border-radius: 8px;
+		background: rgba(248, 255, 248, 0.07);
+		padding: 0.8rem;
+		box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+	}
+
+	.lab-rack > div::after {
+		height: 0.45rem;
+		flex: 1;
+		content: '';
+		border-radius: 999px;
+		background: rgba(248, 255, 248, 0.16);
+	}
+
+	.shield-badge {
+		position: absolute;
+		right: 1.5rem;
+		top: 1.35rem;
+		z-index: 2;
+		display: grid;
+		width: 4.8rem;
+		height: 5.2rem;
+		place-items: center;
+		background: linear-gradient(135deg, #00d8ff, #b7ff2a);
+		clip-path: polygon(50% 0, 92% 18%, 82% 76%, 50% 100%, 18% 76%, 8% 18%);
+		color: #101211;
+		font-size: 1.2rem;
+		font-weight: 900;
 	}
 
 	.card-circuit {
