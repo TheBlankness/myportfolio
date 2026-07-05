@@ -197,7 +197,7 @@
 		<div
 			class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"
 		>
-			<div class="max-w-4xl">
+			<div class="min-w-0 max-w-4xl">
 				<p class="eyebrow">Portfolio / SvelteKit / Cloud systems</p>
 				<h1 class="hero-title">
 					<span>Hi, I am</span>
@@ -222,26 +222,20 @@
 			</div>
 
 			<div class="tech-panel" aria-label="Interactive technology panel">
-				<svg class="tech-svg" viewBox="0 0 420 420" role="img" aria-label="Animated circuit orbit">
+				<svg class="tech-svg" viewBox="0 0 420 320" role="img" aria-label="Spinning HI mark">
 					<defs>
-						<linearGradient id="circuit-line" x1="0" x2="1" y1="0" y2="1">
+						<linearGradient id="hi-line" x1="0" x2="1" y1="0" y2="1">
 							<stop offset="0%" stop-color="#00d8ff" />
-							<stop offset="55%" stop-color="#b7ff2a" />
-							<stop offset="100%" stop-color="#ff3d81" />
+							<stop offset="100%" stop-color="#b7ff2a" />
 						</linearGradient>
 					</defs>
-					<path
-						class="orbit orbit-one"
-						d="M210 38 C310 38 382 110 382 210 C382 310 310 382 210 382 C110 382 38 310 38 210 C38 110 110 38 210 38Z"
-					/>
-					<path
-						class="orbit orbit-two"
-						d="M90 252 C118 132 244 64 342 124 C394 156 398 254 338 308 C260 378 94 350 90 252Z"
-					/>
-					<path class="pulse-line" d="M96 212 H150 L174 166 L222 286 L252 214 H324" />
-					<circle class="node node-one" cx="96" cy="212" r="9" />
-					<circle class="node node-two" cx="324" cy="214" r="9" />
-					<circle class="node node-three" cx="210" cy="210" r="58" />
+					<g class="hi-spinner">
+						<circle class="hi-ring hi-ring-one" cx="210" cy="142" r="118" />
+						<circle class="hi-ring hi-ring-two" cx="210" cy="142" r="76" />
+						<text class="hi-monogram" x="210" y="176" text-anchor="middle">HI</text>
+					</g>
+					<path class="hi-signal" d="M78 142 H128 L152 104 L184 194 L214 142 H286 L306 120" />
+					<text class="hi-name" x="210" y="286" text-anchor="middle">Hazim Imanuddin</text>
 				</svg>
 				<div class="panel-content">
 					<span class="panel-kicker">current mode</span>
@@ -404,11 +398,6 @@
 										</div>
 									{/if}
 								</div>
-								<svg class="card-circuit" viewBox="0 0 320 180" aria-hidden="true">
-									<path d="M8 150 C70 84 94 112 148 76 C194 44 228 76 312 24" />
-									<circle cx="148" cy="76" r="5" />
-									<circle cx="312" cy="24" r="5" />
-								</svg>
 							</div>
 							<div class="project-copy">
 								<p>{project.kicker}</p>
@@ -668,8 +657,8 @@
 
 	.hero-title {
 		margin-top: 1rem;
-		max-width: 880px;
-		font-size: clamp(3.5rem, 11vw, 10.5rem);
+		max-width: min(880px, 100%);
+		font-size: clamp(3.4rem, 9.5vw, 9rem);
 		font-weight: 900;
 		line-height: 0.88;
 		letter-spacing: 0;
@@ -803,12 +792,8 @@
 		box-shadow: 0 28px 80px rgba(5, 6, 7, 0.12);
 	}
 
-	.tech-panel:hover .orbit-one {
-		animation-duration: 5s;
-	}
-
-	.tech-panel:hover .pulse-line {
-		stroke-dashoffset: 0;
+	.tech-panel:hover .hi-spinner {
+		animation-duration: 4s;
 	}
 
 	:global(.dark) .tech-panel {
@@ -826,42 +811,51 @@
 		padding: 0.25rem;
 	}
 
-	.orbit,
-	.pulse-line,
-	.node {
-		fill: none;
-		stroke: url(#circuit-line);
-		stroke-width: 3;
+	.hi-spinner {
+		transform-box: fill-box;
+		transform-origin: center;
+		animation: spin 12s linear infinite;
 	}
 
-	.orbit {
-		transform-origin: center;
-		stroke-dasharray: 12 12;
-		animation: spin 15s linear infinite;
+	.hi-ring,
+	.hi-signal {
+		fill: none;
+		stroke: url(#hi-line);
+		stroke-width: 3;
+		filter: drop-shadow(0 0 12px rgba(0, 216, 255, 0.24));
+	}
+
+	.hi-ring {
+		stroke-dasharray: 16 12;
+		opacity: 0.82;
+	}
+
+	.hi-ring-two {
+		stroke-dasharray: 8 14;
+		opacity: 0.55;
+	}
+
+	.hi-signal {
+		stroke-linecap: round;
+		stroke-linejoin: round;
 		opacity: 0.76;
 	}
 
-	.orbit-two {
-		animation-direction: reverse;
-		animation-duration: 20s;
+	.hi-monogram {
+		fill: #f8fff8;
+		font-size: 6.8rem;
+		font-weight: 950;
+		letter-spacing: 0;
+		stroke: rgba(183, 255, 42, 0.34);
+		stroke-width: 1;
 	}
 
-	.pulse-line {
-		stroke-dasharray: 520;
-		stroke-dashoffset: 520;
-		transition: stroke-dashoffset 700ms ease;
-	}
-
-	.node {
-		fill: rgba(246, 251, 250, 0.82);
-	}
-
-	:global(.dark) .node {
-		fill: rgba(5, 6, 7, 0.88);
-	}
-
-	.node-three {
-		opacity: 0.28;
+	.hi-name {
+		fill: rgba(248, 255, 248, 0.7);
+		font-size: 1.15rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
 	}
 
 	.panel-content {
@@ -1332,39 +1326,6 @@
 		font-weight: 900;
 	}
 
-	.card-circuit {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		transition: opacity 220ms ease;
-	}
-
-	.card-circuit path,
-	.card-circuit circle {
-		fill: none;
-		stroke: #b7ff2a;
-		stroke-width: 3;
-		filter: drop-shadow(0 0 10px rgba(183, 255, 42, 0.6));
-	}
-
-	.card-circuit path {
-		stroke-dasharray: 380;
-		stroke-dashoffset: 380;
-		transition: stroke-dashoffset 580ms ease;
-	}
-
-	.project-card:hover .card-circuit,
-	.project-card:focus-within .card-circuit {
-		opacity: 1;
-	}
-
-	.project-card:hover .card-circuit path,
-	.project-card:focus-within .card-circuit path {
-		stroke-dashoffset: 0;
-	}
-
 	.project-copy {
 		display: grid;
 		gap: 0.85rem;
@@ -1636,6 +1597,12 @@
 		}
 	}
 
+	@media (max-width: 1023px) {
+		.tech-panel {
+			display: none;
+		}
+	}
+
 	@media (max-width: 900px) {
 		.tech-panel {
 			min-height: 0;
@@ -1649,7 +1616,7 @@
 
 	@media (max-width: 640px) {
 		.hero-title {
-			font-size: clamp(3.2rem, 18vw, 5.2rem);
+			font-size: clamp(2.8rem, 13.5vw, 4.1rem);
 		}
 
 		.signal-tile {
