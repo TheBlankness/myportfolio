@@ -195,7 +195,7 @@
 		</div>
 
 		<div
-			class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"
+			class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto]"
 		>
 			<div class="min-w-0 max-w-4xl">
 				<p class="eyebrow">Portfolio / SvelteKit / Cloud systems</p>
@@ -222,7 +222,7 @@
 			</div>
 
 			<div class="tech-panel" aria-label="Interactive technology panel">
-				<svg class="tech-svg" viewBox="0 0 420 320" role="img" aria-label="Spinning HI mark">
+				<svg class="tech-svg" viewBox="0 0 420 260" role="img" aria-label="Spinning HI mark">
 					<defs>
 						<linearGradient id="hi-line" x1="0" x2="1" y1="0" y2="1">
 							<stop offset="0%" stop-color="#00d8ff" />
@@ -235,7 +235,6 @@
 						<text class="hi-monogram" x="210" y="176" text-anchor="middle">HI</text>
 					</g>
 					<path class="hi-signal" d="M78 142 H128 L152 104 L184 194 L214 142 H286 L306 120" />
-					<text class="hi-name" x="210" y="286" text-anchor="middle">Hazim Imanuddin</text>
 				</svg>
 				<div class="panel-content">
 					<span class="panel-kicker">current mode</span>
@@ -521,13 +520,13 @@
 		position: absolute;
 		inset: 0;
 		z-index: -2;
-		background: radial-gradient(circle at 78% 20%, rgba(0, 216, 255, 0.3), transparent 32%),
-			radial-gradient(circle at 82% 74%, rgba(183, 255, 42, 0.24), transparent 28%),
+		background: radial-gradient(circle at 82% 18%, rgba(0, 216, 255, 0.24), transparent 30%),
+			radial-gradient(circle at 86% 74%, rgba(183, 255, 42, 0.18), transparent 27%),
 			linear-gradient(
 				90deg,
-				rgba(246, 251, 250, 0.9),
-				rgba(246, 251, 250, 0.54) 46%,
-				rgba(246, 251, 250, 0.16)
+				rgba(248, 255, 253, 0.95),
+				rgba(248, 255, 253, 0.72) 54%,
+				rgba(248, 255, 253, 0.3)
 			);
 	}
 
@@ -562,7 +561,7 @@
 		transform: rotate(-12deg);
 		gap: 3rem;
 		white-space: nowrap;
-		color: rgba(5, 6, 7, 0.06);
+		color: rgba(5, 6, 7, 0.035);
 		font-size: clamp(3rem, 11vw, 10rem);
 		font-weight: 800;
 		letter-spacing: 0;
@@ -657,8 +656,8 @@
 
 	.hero-title {
 		margin-top: 1rem;
-		max-width: min(880px, 100%);
-		font-size: clamp(3.4rem, 9.5vw, 9rem);
+		max-width: min(820px, 100%);
+		font-size: clamp(3.4rem, 8.5vw, 8rem);
 		font-weight: 900;
 		line-height: 0.88;
 		letter-spacing: 0;
@@ -670,9 +669,10 @@
 	}
 
 	.hero-title strong {
-		background: linear-gradient(100deg, currentColor 0%, #007c8f 44%, #5d8300 78%);
+		background: linear-gradient(100deg, #00a5bd 0%, #00796f 48%, #558000 100%);
 		background-clip: text;
 		color: transparent;
+		filter: drop-shadow(0 12px 20px rgba(0, 124, 143, 0.14));
 	}
 
 	:global(.dark) .hero-title strong {
@@ -779,13 +779,14 @@
 	.tech-panel {
 		position: relative;
 		display: grid;
-		grid-template-rows: minmax(210px, 1fr) auto;
-		gap: 1rem;
-		min-height: 430px;
+		width: min(30vw, 390px);
+		grid-template-rows: minmax(140px, 1fr) auto;
+		gap: 0.85rem;
+		min-height: 0;
 		border: 1px solid rgba(5, 6, 7, 0.12);
 		border-radius: 8px;
 		overflow: hidden;
-		padding: 1.25rem;
+		padding: 1rem;
 		background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.28)),
 			radial-gradient(circle at 30% 20%, rgba(0, 216, 255, 0.2), transparent 34%);
 		backdrop-filter: blur(24px);
@@ -807,7 +808,7 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		min-height: 210px;
+		min-height: 140px;
 		padding: 0.25rem;
 	}
 
@@ -842,27 +843,24 @@
 	}
 
 	.hi-monogram {
-		fill: #f8fff8;
+		fill: #071211;
 		font-size: 6.8rem;
 		font-weight: 950;
 		letter-spacing: 0;
-		stroke: rgba(183, 255, 42, 0.34);
+		stroke: rgba(0, 165, 189, 0.22);
 		stroke-width: 1;
 	}
 
-	.hi-name {
-		fill: rgba(248, 255, 248, 0.7);
-		font-size: 1.15rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
+	:global(.dark) .hi-monogram {
+		fill: #f8fff8;
+		stroke: rgba(183, 255, 42, 0.34);
 	}
 
 	.panel-content {
 		position: relative;
 		z-index: 1;
 		border-radius: 8px;
-		padding: 1rem;
+		padding: 0.9rem;
 		background: rgba(246, 251, 250, 0.76);
 		backdrop-filter: blur(18px);
 	}
@@ -874,12 +872,12 @@
 	.panel-content strong {
 		display: block;
 		margin-top: 0.45rem;
-		font-size: 1.5rem;
+		font-size: 1.15rem;
 		line-height: 1.1;
 	}
 
 	.service-list {
-		margin-top: 1rem;
+		margin-top: 0.8rem;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
